@@ -319,18 +319,17 @@ label-disconnected = 
 label-disconnected-foreground = ${colors.urgent}
 
 ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-
+ramp-signal-1 = 
+ramp-signal-2 =  
+ramp-signal-3 =  
 ramp-signal-0-foreground = #ebdbb2
 ramp-signal-0-underline = #ebdbb2
 
 ramp-signal-1-foreground = #ebdbb2
 ramp-signal-1-underline = #ebdbb2 
 
-ramp-signal-2-foreground = ${colors.nord7}
-ramp-signal-2-underline = ${colors.nord7}
+ramp-signal-2-foreground = #ebdbb2
+ramp-signal-2-underline = #ebdbb2
 
 ramp-signal-3-foreground = #ebdbb2
 ramp-signal-3-underline = #ebdbb2

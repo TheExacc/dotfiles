@@ -7,65 +7,143 @@ mpd_host = "127.0.0.1"
 mpd_port = "6600"
 # GENERAL
 # ---
-external_editor                  = nvim
-message_delay_time               = 1
-playlist_disable_highlight_delay = 2
-autocenter_mode                  = "yes"
-centered_cursor                  = "yes"
-ignore_leading_the               = "yes"
-allow_for_physical_item_deletion = "no"
-connected_message_on_startup = "yes"
-cyclic_scrolling = "yes"
-mouse_support = "yes"
-mouse_list_scroll_whole_page = "yes"
-lines_scrolled = "1"
-playlist_shorten_total_times = "yes"
-playlist_display_mode = "columns"
-browser_display_mode = "columns"
-search_engine_display_mode = "columns"
-playlist_editor_display_mode = "columns"
-user_interface = "classic"
-follow_now_playing_lyrics = "yes"
-display_bitrate = "no"
-startup_screen = "playlist"
+#######################################################################
+##   This is configuration file. Copy it to $HOME/.ncmpcpp/config    ##
+##  or $XDG_CONFIG_HOME/ncmpcpp/config and set up your preferences   ##
+#######################################################################
 
-# VISUALIZER
-# ---
-visualizer_data_source = "/tmp/mpd.fifo"
-visualizer_output_name = "Visualizer"
+### directories ###
+
+
+
+### Directory for storing downloaded lyrics ###
+
+
+
+################################
+
+% egrep -v '^#' .ncmpcpp/config
+
 visualizer_in_stereo = "no"
-#visualizer_sync_interval = "30"
-visualizer_type = "wave"
-visualizer_fps = "60"
-visualizer_look = ●▮
-visualizer_color = "187"
+visualizer_type = "wave_filled"
+visualizer_look = "▮"
+#visualizer_look = "▀▋"
+#visualizer_look = "●▮"
+visualizer_color = "red"
 
-# PROGRESS BAR
-# ---
-progressbar_look = "   "
+message_delay_time = "2"
+
+playlist_shorten_total_times = "yes"
+playlist_display_mode = "classic"
+playlist_editor_display_mode = "columns"
+
+browser_display_mode = "columns"
+
+search_engine_display_mode = "columns"
+
+autocenter_mode = "yes"
+
+mouse_support = "yes"
+
+centered_cursor = "yes"
+
+user_interface = "classic"
+
+follow_now_playing_lyrics = "yes"
+
+locked_screen_width_part = "60"
+
+display_bitrate = "no"
+
+external_editor = "vim"
+
+progressbar_elapsed_color = "white"
 progressbar_color = "black"
-progressbar_elapsed_color = "yellow"
 
-# COLORS
-# ---
-main_window_color = "blue"
-color1 = "white"
-color2 = "blue"
+#progressbar_look = "▃▃▃"
+progressbar_look = "──"
+#progressbar_look = "==─"
 
-# UI VISIBILITY
-# ---
 header_visibility = "no"
-statusbar_visibility = "no"
+statusbar_visibility = "yes"
 titles_visibility = "no"
 
-# UI APPEARANCE
-# ---
-now_playing_prefix = "$b$8$7 "
-now_playing_suffix = "  $/b$8"
-current_item_prefix = "$b$7$/b$3 "
-current_item_suffix = "  $8"
-song_status_format= "$7%t"
-song_list_format = "$8%a - %t$R  %l"
-song_columns_list_format = "(53)[white]{tr} (45)[blue]{a}"
-song_library_format = {{%a - %t} (%b)}|{%f}
-song_window_title_format = "Music"
+statusbar_color = "white"
+
+enable_window_title = "yes"
+
+now_playing_prefix = "$b$1"
+now_playing_suffix = "$8$/b"
+
+#now_playing_prefix = "$u$2"
+#now_playing_suffix = "$2$/u$2"
+
+song_columns_list_format = "(6)[]{} (23)[red]{a} (26)[yellow]{t|f} (40)[green]{b} (4)[blue]{l}"
+
+#song_list_format = " $7%l  $2%t $R$5%a "
+#song_list_format = "$1> $2%a$8 - $3%b - $8%t $R $3%l  "
+song_list_format = "$1> $2%a$8 - $8%t $R $3%l  "
+
+song_status_format = "$b$7♫ $2%a $8- $3%b $8- $8%t "
+song_window_title_format = " {%a} - {%t}"
+
+
+###################
+##  song format  ##
+##
+## For a song format you can use:
+##
+## %l - length
+## %f - filename
+## %D - directory
+## %a - artist
+## %A - album artist
+## %t - title
+## %b - album
+## %y - date
+## %n - track number (01/12 -> 01)
+## %N - full track info (01/12 -> 01/12)
+## %g - genre
+## %c - composer
+## %p - performer
+## %d - disc
+## %C - comment
+## %P - priority
+## $R - begin right alignment
+##
+##
+## Colors:
+##
+## - 0 - default window color (discards all other colors)
+## - 1 - black
+## - 2 - red
+## - 3 - green
+## - 4 - yellow
+## - 5 - blue
+## - 6 - magenta
+## - 7 - cyan
+## - 8 - white
+## - 9 - end of current color
+## - b - bold text
+## - u - underline text
+## - r - reverse colors
+## - a - use alternative character set
+##
+##
+###################################################################
+##  Custom command that will be executed each time song changes  ##
+##
+#execute_on_song_change = 
+#
+##
+###########################################################################
+##  Custom command that will be executed each time player state changes  ##
+##    The environment variable MPD_PLAYER_STATE is set to the current    ##
+##     state (either unknown, play, pause, or stop) for its duration     ##
+##
+#
+#execute_on_player_state_change = notify-send "$(mpc current)"
+
+startup_slave_screen=visualizer
+
+execute_on_song_change="notify-send "Now playing" "$(ncmpcpp -q --current-song="{%a - }{%t}|{%f}")""
