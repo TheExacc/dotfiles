@@ -54,7 +54,7 @@ tray-position = ${config.systray-top}
 
 [bar/nord-down]
 inherit = bar/base
-
+height = 1.75%
 bottom = true
 
 module-margin = 2

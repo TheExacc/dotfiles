@@ -7,6 +7,8 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
+    Plug 'turbio/bracey.vim', { 'do': 'npm install --prefix server' }
+    Plug 'ellisonleao/carbon-now.nvim'
     Plug 'https://github.com/ycm-core/YouCompleteMe'
     Plug 'ggreer/the_silver_searcher'
     Plug 'erietz/vim-terminator', { 'branch': 'main'}
