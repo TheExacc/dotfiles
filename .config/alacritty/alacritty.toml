@@ -1,0 +1,27 @@
+general.import = ["/home/sourav/.config/alacritty/gruvbox-material-soft-dark.toml"]
+
+[cursor.style]
+blinking = "Always"
+shape = "Block"
+
+[font]
+size = 12.0
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.normal]
+family = "hack"
+style = "Regular"
+
+[scrolling]
+history = 25000
+
+[selection]
+save_to_clipboard = true
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.5
