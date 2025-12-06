@@ -30,7 +30,7 @@ set $right semicolon
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
 #####################################################################################################################
-exec --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --rate 60.00 
+exec --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --rate 60.00
 #exec xrandr --setprovideroutputsource modesetting NVIDIA-0
 #exec xrandr --auto
 exec --no-startup-id xrandr --setprovideroutputsource modesetting NVIDIA-0
@@ -85,7 +85,7 @@ bindsym $mod+0 mode "$mode_system"
 
 set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
 mode "$mode_system" {
-     
+
     bindsym k exec --no-startup-id ~/.config/i3/scripts/i3exit.sh lock, mode "default"
 #    bindsym k exec i3lock -i ~/Pictures/walls/waterfall2.jpg
     bindsym l exec --no-startup-id ~/.config/i3/scripts/i3exit.sh logout, mode "default"
@@ -134,34 +134,23 @@ bindsym $mod+q kill
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# Use Alt to drag floating windows to their wanted position
+floating_modifier Mod1
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym Mod1+Shift+space floating toggle
 
-# change focus
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+# change focus with arrow keys
+bindsym Mod1+Left focus left
+bindsym Mod1+Down focus down
+bindsym Mod1+Up focus up
+bindsym Mod1+Right focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# move focused window with arrow keys
+bindsym Mod1+Shift+Left move left
+bindsym Mod1+Shift+Down move down
+bindsym Mod1+Shift+Up move up
+bindsym Mod1+Shift+Right move right
 
 
 
@@ -403,8 +392,9 @@ mode "$mode_gaps_outer" {
 #####################################################################################################################
 
 #if you want transparency on non-focused windows, ...
-exec_always --no-startup-id picom --animations -b
-#exec_always --no-startup-id picom --config ~/.config/picom/picom.sample.conf
+#exec_always --no-startup-id picom --backend egl --experimental-backends --animations -b
+exec_always --no-startup-id picom --config ~/.config/picom/picom.sample.conf
+#exec_always --no-startup-id picom --backend egl
 exec_always --no-startup-id ~/.config/i3/scripts/mouse.sh
 #exec_always feh --bg-fill $HOME/Pictures/walls/gruv_black.png
 exec_always xwallpaper --tile $HOME/Pictures/walls/gruvtile.png
@@ -418,7 +408,7 @@ exec_always --no-startup-id dunst -config $HOME/.config/dunst/base16-nord.dunstr
 bindsym Mod4+Mod1+Shift+minus exec \
   i3-msg "gaps outer current minus 5" && \
   i3-msg "gaps inner current minus 5"
-  
+
   bindsym Mod4+Mod1+Shift+plus exec \
   i3-msg "gaps outer current plus 5" && \
   i3-msg "gaps inner current plus 5"
@@ -435,7 +425,7 @@ bindsym Mod4+Mod1+Shift+minus exec \
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
-set $base03 #5e81ac  
+set $base03 #5e81ac
 set $base04 #C0C5CE
 set $base05 #d1d4e0
 set $base06 #C9CCDB
