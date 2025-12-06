@@ -62,7 +62,7 @@ line-size = 0
 # if some of them doesn't suit your environment, you can change
 # it from here.
 # network interface, check by `ip link show`
-interface = wlan0
+interface = eno1
 # when the current battery capacity excess this value,
 # the full-capacity format will be displayed.
 battery-full-at = 95

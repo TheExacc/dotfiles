@@ -22,7 +22,7 @@ foreground = ${colors.foreground}
 
 line-size = ${config.line-size}
 
-padding = 0
+padding = 1
 override-redirect = ${config.override-redirect}
 wm-restack = ${config.wm-restack}
 
@@ -54,13 +54,13 @@ tray-position = ${config.systray-top}
 
 [bar/nord-down]
 inherit = bar/base
-height = 1.75%
+height = 2.75%
 bottom = true
 
 module-margin = 2
 
 
-font-0 = Lunasima:size=12
+font-0 = Lunasima:size=14
 font-1 = FontAwesome6FreeSolid:pixelsize=12;1
 font-2 = FontAwesome6Brands:pixelsize=8;1
 font-3 = Weather Icons:style=Regular:size=12;1
