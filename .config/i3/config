@@ -71,7 +71,9 @@ bindsym $mod+Shift+9 move container to workspace 9
 #bindsym $mod+shift+d exec --no-startup-id dmenu_run -i -nb '#2E3440' -nf '#81a1c1' -sb '#81a1c1' -sf '#2E3440' -fn 'SourceCodePro:bold:pixelsize=16'
 
 # start rofi full
-bindsym $mod+shift+d exec --no-startup-id rofi -show drun -font "Source Code Pro 14"
+bindsym $mod+shift+d exec --no-startup-id rofi -show drun -font "Source Code Pro 13"
+bindsym $mod+Shift+s exec --no-startup-id gnome-screenshot -i
+
 
 
 
@@ -274,7 +276,7 @@ bindsym $mod+Return exec --no-startup-id alacritty;focus
 bindsym control+mod1+u exec --no-startup-id pavucontrol
 
 bindsym $mod+Shift+Return exec --no-startup-id alacritty -e ranger ;focus
- bindsym $mod+d exec --no-startup-id nautilus;focus
+ bindsym $mod+d exec --no-startup-id dolphin;focus
 
 
 
