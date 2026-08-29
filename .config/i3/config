@@ -30,14 +30,33 @@ set $right semicolon
 #####################################################################################################################
 #################                          Single and Dual screen                                   #################
 #####################################################################################################################
-exec --no-startup-id xrandr --output eDP-1-1 --mode 1920x1080 --rate 60.00
-#exec xrandr --setprovideroutputsource modesetting NVIDIA-0
-#exec xrandr --auto
 exec --no-startup-id xrandr --setprovideroutputsource modesetting NVIDIA-0
-exec --no-startup-id xrandr --auto
 exec --no-startup-id xrandr --dpi 96
-exec --no-startup-id ~/.config/i3/scripts/conky_start.sh
-#exec --no-startup-id  ~/.config/i3/scripts/glavastart.sh
+#exec --no-startup-id ~/.config/i3/scripts/conky_start.sh
+
+# Automatically load the correct display profile on startup based on plugged cables
+exec_always --no-startup-id autorandr --change
+
+# Manual fallback menu for Autorandr profiles
+# Display switching menu
+set $mode_display Monitor Setup: (l) Laptop, (d) Dual, (e) Extended
+bindsym $mod+p mode "$mode_display"
+
+mode "$mode_display" {
+    # Load the "laptop" profile and exit menu
+    bindsym l exec --no-startup-id autorandr --load laptop; mode "default"
+
+    # Load the "dual" profile and exit menu
+    bindsym d exec --no-startup-id autorandr --load dual; mode "default"
+
+    # Load the "extended" profile and exit menu
+    bindsym e exec --no-startup-id autorandr --load extended; mode "default"
+
+    # Exit the menu
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -64,7 +83,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 
 
 #####################################################################################################################
-#################                          3 menu's in arcolinux                                     #################
+#################                          3 menu's in archlinux                                     #################
 #####################################################################################################################
 
 # start dmenu

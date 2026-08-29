@@ -3,7 +3,7 @@
 [config]
 # DPI value for HiDPI screen
 dpi = 87
-monitor =
+monitor = ${env:MONITOR:}
 
 # bar position, apply globally
 width = 100%

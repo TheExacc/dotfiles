@@ -1,0 +1,3 @@
+#!/bin/sh
+xrandr --output HDMI-0 --rate 120.00 2>/dev/null || true
+xwallpaper --tile $HOME/Pictures/walls/gruvtile.png

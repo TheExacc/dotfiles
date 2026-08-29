@@ -7,7 +7,7 @@ include-file = $HOME/.config/polybar/nord-config
 
 [bar/base]
 theme = light
-monitor = ${config.monitor}
+monitor = ${env:MONITOR:}
 width = ${config.width}
 height = ${config.height}
 offset-x = ${config.offset-x}
